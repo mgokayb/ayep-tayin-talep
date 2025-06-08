@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giriş Sayfası</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="login-container">
+    <!-- Başlık ve Logos -->
+    <div class="login-header">
+      <div class="logos">
+        <a href="index.html"><img src="eDevletLogo.png" alt="e-Devlet Kapısı Logo" class="logo-primary"></a>
+        <a href="index.html"><img src="uyapLogo.png" alt="UYAP Logo" class="logo-secondary"></a>
+      </div>
+      <h1>Tayin Talep Kullanıcı Girişi</h1>
+      <p>Personel Giriş</p>
+    </div>
+
+    <!-- Sekmeler (Tabs) -->
+    <div class="tabs">
+      <button class="tab active">Uyap Şifresi</button>
+      <button class="tab">Mobil İmza</button>
+      <button class="tab">Elektronik İmza</button>
+      <div class="tab dropdown">
+        <button class="dropdown-toggle">Diğer Yöntemler ▼</button>
+        <ul class="dropdown-menu">
+          <li>Yöntem 1</li>
+          <li>Yöntem 2</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form class="login-form">
+      <div class="form-group">
+        <label for="tc-no">Sicil No</label>
+        <input type="text" id="tc-no" placeholder="Sicil Numaranız">
+      </div>
+      <div class="form-group">
+        <label for="uyap-sifre">Uyap Şifreniz</label>
+        <input type="password" id="uyap-sifre" placeholder="Şifreniz">
+      </div>
+      <div class="form-info">
+        <p>* Uyap şifrenizi unuttunuz mu? <a href="#">Şifremi Unuttum</a></p>
+      </div>
+      <div class="form-buttons">
+        <button type="button" class="btn cancel-btn" onclick="window.location.href='index.html';">İptal</button>
+        <button type="submit" class="btn submit-btn">Giriş Yap</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

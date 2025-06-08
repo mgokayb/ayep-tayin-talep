@@ -1,0 +1,555 @@
+/* Genel reset ve gövde ayarları */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('adalet.png') no-repeat center center/cover;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin: 2% 0;
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2%;
+}
+
+/* Logo (Başlık) */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Giriş Yap Butonu */
+.login-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.login-btn:hover {
+    background: #0056b3;
+}
+
+/* Hero Bölümü */
+.hero {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+}
+
+/* Kartlar */
+.cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.card h3 {
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
+}
+
+/* Menü Toggle Butonu (Mobil) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Nav öğeleri */
+.nav-items {
+  display: flex;
+  align-items: center;
+}
+
+/* Mobil için medya sorgusu */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .nav-items {
+    display: none;
+    flex-direction: column;
+    background: rgba(255,255,255,0.95);
+    position: absolute;
+    top: 100%;
+    right: 2%;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .nav-items.open {
+    display: flex;
+  }
+  .nav-items .login-btn {
+    margin: 0.5rem 1rem;
+  }
+}
+
+/* --- Login Sayfası --- */
+.login-container {
+  max-width: 500px;
+  margin: 5% auto;
+  background: rgba(255,255,255,0.95);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.login-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.login-header .logos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.logo-primary,
+.logo-secondary {
+  max-height: 50px;
+}
+.login-header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+.login-header p {
+  color: #555;
+}
+
+/* Sekmeler (Tabs) */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tab {
+  flex: 1;
+  padding: 0.75rem;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.tab.active {
+  background: #007bff;
+  color: #fff;
+}
+.tab.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  display: none;
+  min-width: 150px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+.dropdown-menu li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.dropdown-menu li:hover {
+  background: #f0f0f0;
+}
+
+/* Form (login.html) */
+.login-form .form-group {
+  margin-bottom: 1rem;
+}
+.login-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+.login-form input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.form-info {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+.form-info a {
+  color: #007bff;
+  text-decoration: none;
+}
+.form-info a:hover {
+  text-decoration: underline;
+}
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+.cancel-btn {
+  background: #ddd;
+  color: #333;
+}
+.submit-btn {
+  background: #007bff;
+  color: #fff;
+}
+.cancel-btn,
+.submit-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cancel-btn:hover {
+  background: #ccc;
+}
+.submit-btn:hover {
+  background: #0056b3;
+}
+
+/* --- Overlay ve kart ayarları (adminPanel) --- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hidden { display: none; }
+
+.login-card,
+.panel-card {
+  background: rgba(255,255,255,0.95);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Panel header: başlık ortada, çıkış sağda */
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.logout-btn {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.logout-btn:hover { opacity: 0.9; }
+
+/* Form alanları alt alta, kart içinde belirgin */
+.user-entry .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.user-entry label {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+.user-entry input,
+.user-entry select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Buton renkleri */
+.btn {
+  min-width: 100px;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cancel-btn { background: #e74c3c; color: #fff; }
+.submit-btn { background: #3498db; color: #fff; }
+.cancel-btn:hover, .logout-btn:hover { opacity: 0.9; }
+.submit-btn:hover { opacity: 0.9; }
+
+/* Tablo stilleri */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+.user-table th,
+.user-table td {
+  border: 1px solid #aaa;
+  padding: 0.5rem;
+  text-align: center;
+}
+.user-table th {
+  background: #f0f0f0;
+}
+.user-table button {
+  padding: 0.25rem 0.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.user-table .delete-btn { background: #e74c3c; color: #fff; }
+.user-table .edit-btn   { background: #f1c40f; color: #fff; }
+.user-table button:hover { opacity: 0.9; }
+
+/* --- EKLENECEK: login-card daraltma (2. görsel hizalama) --- */
+.login-card.narrow {
+  width: 360px;
+  padding: 2rem 1.5rem;
+}
+.login-card.narrow h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.login-card.narrow .form-group {
+  margin-bottom: 1rem;
+}
+.login-card.narrow .form-buttons.centered {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+/* Navbar düğmeleri */
+.navbar .btn {
+  margin-left: 0.5rem;
+}
+.navbar .cancel-btn { background: #e74c3c; color: #fff; }
+
+/* Panel içerik kartları */
+.card {
+  background: rgba(255,255,255,0.95);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-top: 2rem;
+}
+.card h2 { margin-bottom: 1rem; }
+
+/* Form grup */
+.card .form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.card label { font-weight: bold; margin-bottom: 0.25rem; }
+.card input, .card textarea, .card select {
+  padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;
+}
+
+/* Talepler listesi tablosu */
+.request-table {
+  width: 100%; border-collapse: collapse; margin-top: 1rem;
+}
+.request-table th, .request-table td {
+  border: 1px solid #aaa; padding: 0.5rem; text-align: center;
+}
+.request-table th { background: #f0f0f0; }
+.request-table button {
+  padding: 0.25rem 0.5rem; border: none; border-radius: 4px; cursor: pointer;
+}
+.request-table .delete-btn { background: #e74c3c; color: #fff; }
+.request-table .edit-btn   { background: #f1c40f; color: #000; }
+.request-table button:disabled { opacity: 0.5; cursor: default; }
+/* Talep Görüntüle Overlay kartı dar */
+.login-card.narrow {
+  width: 360px;
+  padding: 2rem 1.5rem;
+}
+.login-card.narrow h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+/* Önceki Talepler tablosuna yatay scroll */
+.card .request-table-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+/* İçerik taşarsa yatay scrollbar görünsün */
+.card .request-table {
+  min-width: 600px;
+}
+
+/* Kart içindeki tablo sarmalayıcı */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.card th,
+.card td {
+  border: 1px solid #aaa;
+  padding: 0.5rem;
+  text-align: center;
+}
+.card th {
+  background: #f0f0f0;
+}
+
+
+/* ========= INDEX SAYFASINDAKİ KARTLARI OTOMATİK GENİŞLET ========= */
+.hero .card {
+  /* Sabit 300px’i geçersiz kıl */
+  width: auto !important;
+  /* Gerekirse çok uzarsa ekranı taşmasın diye max ayar */
+  max-width: 90% !important;
+}
+
+/* İçindeki wrapper’ı da overflow yerine genişlemeye zorla */
+.hero .card .table-wrapper {
+  overflow-x: visible !important;
+}
+
+/* Tablo layout’u içeriğe göre ayarla */
+.hero .card table {
+  table-layout: auto !important;
+}
+
+/* ========= USER PANEL “ÖNCEKİ TALEPLER” KARTINI GÜÇLÜCE GEÇERSİZ KIL ========= */
+#panel .panel-card {
+  width: auto !important;
+  max-width: 90% !important;
+}
+
+/* Önceki talepler wrapper’ı overflow yerine genişlesin */
+#panel .panel-card .request-table-wrapper {
+  overflow-x: visible !important;
+}
+
+/* Tablo içeriğe uyumlu layout */
+#panel .panel-card .request-table {
+  table-layout: auto !important;
+}
+#panel .panel-card .request-table th,
+#panel .panel-card .request-table td {
+  word-wrap: break-word;
+  white-space: normal;
+}
+/* ─────── Sadece Önceki Tayin Taleplerim Tablosu İçin ─────── */
+#prev-requests-table {
+  width: auto !important;       /* tablo genişliğini içeriğe göre ayarla */
+  table-layout: auto !important;/* hücre genişliklerini içeriğe göre ayarla */
+}
+
+/* wrapper’ı overflow yerine görünür yap */
+#prev-requests-table
+  .request-table-wrapper,
+#prev-requests-table + .request-table-wrapper {
+  overflow-x: visible !important;
+}
+
+/* hücreler satır kaydırmalı olsun */
+#prev-requests-table th,
+#prev-requests-table td {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+
+/* eğer tablonun üstündeki .card da sabit genişlikliyse:
+   onun da kendini tabloya göre çekmesini istersen: */
+#prev-requests-table.closest(.card) {
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* ─── Önceki Talepler Kartı’nı tabloya göre genişlet ─── */
+.prev-requests-card {
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* ─── Wrapper’da scroll değil, genişleme olsun ─── */
+.prev-requests-wrapper {
+  overflow-x: visible !important;
+}
+
+/* ─── Tablo hücrelerini satır kaydırmalı yap ─── */
+#prev-requests-table {
+  table-layout: auto !important;
+  width: auto !important;
+}
+#prev-requests-table th,
+#prev-requests-table td {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+

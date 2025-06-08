@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Giriş Kartı (Overlay) -->
+  <div id="login-overlay" class="overlay">
+    <div class="login-card narrow">
+      <h2>Admin Girişi</h2>
+      <form id="admin-login-form">
+        <div class="form-group">
+          <label for="admin-id">ID</label>
+          <input type="text" id="admin-id" required>
+        </div>
+        <div class="form-group">
+          <label for="admin-pw">Şifre</label>
+          <input type="password" id="admin-pw" required>
+        </div>
+        <div class="form-buttons centered">
+          <button type="button" class="btn cancel-btn" id="admin-cancel">İptal</button>
+          <button type="submit" class="btn submit-btn">Giriş</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Panel Kartı -->
+  <div id="panel" class="overlay hidden">
+    <div class="panel-card">
+      <div class="panel-header">
+        <h1>Hoş Geldin, Admin.</h1>
+        <button id="admin-logout" class="btn logout-btn">Çıkış</button>
+      </div>
+
+      <!-- Kullanıcı Giriş Kartı -->
+      <section class="user-entry">
+        <h2>Kullanıcı Ekle / Düzenle</h2>
+        <form id="user-form">
+          <div class="form-group">
+            <label for="new-sicil">Sicil No</label>
+            <input type="text" id="new-sicil" pattern="\d{6}" required>
+          </div>
+          <div class="form-group">
+            <label for="new-ad">İsim Soyisim</label>
+            <input type="text" id="new-ad" pattern="[A-Za-zğüşöçıİĞÜŞÖÇ ]+" required>
+          </div>
+          <div class="form-group">
+            <label for="new-gorev">Görev Yeri</label>
+            <select id="new-gorev" required></select>
+          </div>
+          <div class="form-group">
+            <label for="new-sifre">Şifre</label>
+            <input type="password" id="new-sifre" required>
+          </div>
+          <div class="form-buttons">
+            <button type="button" class="btn cancel-btn" id="user-form-cancel">İptal</button>
+            <button type="submit" class="btn submit-btn" id="user-form-save">Kaydet</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Kullanıcı Tablosu -->
+      <section class="user-table-section">
+        <h2>Kullanıcılar</h2>
+        <table class="user-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Sicil No</th>
+              <th>İsim Soyisim</th>
+              <th>Görev Yeri</th>
+              <th>Tayin Talebi</th>
+              <th>Sil</th>
+              <th>Değiştir</th>
+            </tr>
+          </thead>
+          <tbody id="user-table-body"></tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+
+  <!-- Tayin Talep Görüntüle Overlay -->
+  <div id="request-overlay" class="overlay hidden">
+    <div class="login-card narrow">
+      <h2>Tayin Talebi</h2>
+      <div id="request-content"></div>
+      <div class="form-buttons centered">
+        <button class="btn cancel-btn" id="close-request">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AYEP Tayin Talep Projesi</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="container navbar-content">
+        <a href="index.html" class="logo">AYEP Tayin Talep Projesi</a>
+        <button class="menu-toggle" aria-label="Menüyü Aç/Kapat">☰</button>
+        <div class="nav-items">
+          <button class="btn login-btn">Giriş Yap</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Ana Bölüm (Hero) -->
+  <main class="hero">
+    <div class="container cards">
+      <!-- 1. Kart: Güncel Tayin Talepleri -->
+      <div class="card" id="card-talepler">
+        <h3>Güncel Tayin Talepleri</h3>
+        <div class="table-wrapper">
+          <table id="table-talepler">
+            <thead>
+              <tr>
+                <th>#</th><th>Sicil</th><th>Şehir</th><th>Açıklama</th><th>Tarih</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 2. Kart: Kullanıcı Listesi -->
+      <div class="card" id="card-users">
+        <h3>Kullanıcı Listesi</h3>
+        <div class="table-wrapper">
+          <table id="table-users">
+            <thead>
+              <tr>
+                <th>#</th><th>Sicil No</th><th>Görev Yeri</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2025 AYEP Tayin Talep Projesi. 307884 Mehmet Gökay BİÇMEN.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

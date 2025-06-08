@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kullanıcı Paneli</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container navbar-content">
+      <span class="logo">Merhaba, <span id="user-name"></span></span>
+      <div class="nav-items">
+        <button id="btn-profile" class="btn">Profil</button>
+        <button id="btn-new-request" class="btn">Yeni Tayin Talebi</button>
+        <button id="btn-my-requests" class="btn">Önceki Talepler</button>
+        <button id="btn-logout" class="btn cancel-btn">Çıkış</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" id="panel-content">
+    <!-- Dinamik içerik buraya gelecek -->
+  </main>
+
+  <script src="userPanel.js"></script>
+</body>
+</html>
