@@ -38,18 +38,37 @@ app.get('/api/tayinTalep', (req, res) => {
   });
 });
 
-// tayinTalep.json → POST tüm talepler
+// tayinTalep.json → POST (merge mantığı ile)
 app.post('/api/tayinTalep', (req, res) => {
-  console.log('POST /api/tayinTalep çağrıldı');
-  fs.writeFile(TAYIN_PATH, JSON.stringify(req.body, null, 2), err => {
-    if (err) return res.status(500).send(err);
-    res.json({ status: 'ok' });
+  console.log('POST /api/tayinTalep çağrıldı, gelen veri:', req.body);
+
+  // Mevcut dosyayı oku
+  fs.readFile(TAYIN_PATH, 'utf8', (readErr, content) => {
+    if (readErr) return res.status(500).send(readErr);
+
+    let allRequests;
+    try {
+      allRequests = JSON.parse(content);
+    } catch (parseErr) {
+      return res.status(500).send(parseErr);
+    }
+
+    // Gelen her sicil için talebi ekle/güncelle ya da sil
+    Object.entries(req.body).forEach(([sicil, talep]) => {
+      if (talep === null) {
+        delete allRequests[sicil];
+      } else {
+        allRequests[sicil] = talep;
+      }
+    });
+
+    // Birleştirilmiş veriyi tekrar yaz
+    fs.writeFile(TAYIN_PATH, JSON.stringify(allRequests, null, 2), writeErr => {
+      if (writeErr) return res.status(500).send(writeErr);
+      res.json({ status: 'ok' });
+    });
   });
 });
-
-// (İsteğe bağlı) belirli sicil için GET ve POST da ekleyebilirsiniz:
-// app.get('/api/tayinTalep/:sicil', handler)
-// app.post('/api/tayinTalep/:sicil', handler)
 
 // Statik dosyaları sun
 app.use(express.static(__dirname));
